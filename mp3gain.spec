@@ -1,6 +1,5 @@
-#
-Summary:	Analyzes and losslessly adjusts mp3 files to a specified target volume
-Summary(pl):	Analizuje i bezstratnie dostraja pliki mp3 do zadanej g³o¶no¶ci
+Summary:	Analyzes and losslessly adjusts MP3 files to a specified target volume
+Summary(pl):	Analiza i bezstratne dostrojenie plików MP3 do zadanej g³o¶no¶ci
 Name:		mp3gain
 Version:	1.4.6
 Release:	1
