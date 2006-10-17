@@ -1,22 +1,20 @@
---- mp3gain-1.4.6/Makefile.orig	2006-10-08 16:34:48.000000000 +0200
-+++ mp3gain-1.4.6/Makefile	2006-10-08 16:35:40.000000000 +0200
-@@ -4,9 +4,7 @@
- # Mike Oliphant (oliphant@gtk.org)
- #
+--- Makefile.orig	2006-10-17 20:29:32.000000000 +0200
++++ Makefile	2006-10-17 20:34:01.000000000 +0200
+@@ -6,7 +6,7 @@
  
--CC=     gcc
--
+ CC=     gcc
+ 
 -CFLAGS= -Wall -O3 -DHAVE_MEMCPY
 +override CFLAGS+= -Wall -O3 -DHAVE_MEMCPY
  
  ifneq ($(OSTYPE),beos)
  INSTALL_PATH= /usr/local/bin
-@@ -16,7 +14,7 @@
+@@ -30,7 +30,7 @@
+ all: mp3gain
  
- # BeOS doesn't have libm (it's all in libroot)
- ifneq ($(OSTYPE),beos)
--LIBS= -lm
-+LIBS= -lm $(LDFLAGS)
- else
- # BeOS: without this it wants to use bcopy() :^)
- CFLAGS+= -DHAVE_MEMCPY
+ mp3gain: $(OBJS)
+-	$(CC) -o mp3gain $(OBJS) $(LIBS)
++	$(CC) $(LDFLAGS) -o mp3gain $(OBJS) $(LIBS)
+ ifeq ($(OSTYPE),beos)
+ 	mimeset -f mp3gain
+ endif

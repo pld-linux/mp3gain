@@ -26,7 +26,7 @@ tak naprawdê plik brzmi dla ludzkiego ucha.
 
 %prep
 %setup -q -c
-%patch0 -p1
+%patch0 -p0
 
 %build
 %{__make} \
