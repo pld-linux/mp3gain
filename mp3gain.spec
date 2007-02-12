@@ -1,5 +1,5 @@
 Summary:	Analyzes and losslessly adjusts MP3 files to a specified target volume
-Summary(pl):	Analiza i bezstratne dostrojenie plikÛw MP3 do zadanej g≥o∂no∂ci
+Summary(pl.UTF-8):   Analiza i bezstratne dostrojenie plik√≥w MP3 do zadanej g≈Ço≈õno≈õci
 Name:		mp3gain
 Version:	1.4.6
 Release:	1
@@ -18,11 +18,11 @@ target volume. It does not simply do peak amplitude normalization.
 Instead, it performs statistical analysis to determine how loud the
 file actually sounds to the human ear.
 
-%description -l pl
+%description -l pl.UTF-8
 MP3Gain analizuje i bezstratnie dostraja pliki mp3 do zadanej
-g≥o∂no∂ci. Nie przeprowadza zwyk≥ej normalizacji poziomu szczytowego.
-Przeprowadza za to analizÍ statystyczn± w celu okre∂lenia jak g≥o∂no
-tak naprawdÍ plik brzmi dla ludzkiego ucha.
+g≈Ço≈õno≈õci. Nie przeprowadza zwyk≈Çej normalizacji poziomu szczytowego.
+Przeprowadza za to analizƒô statystycznƒÖ w celu okre≈õlenia jak g≈Ço≈õno
+tak naprawdƒô plik brzmi dla ludzkiego ucha.
 
 %prep
 %setup -q -c
