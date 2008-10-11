@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/mp3gain/%{name}-%(echo %{version} | tr . _)-s
 # Source0-md5:	4327167375dce5bce97625729a95fdb9
 Patch0:		%{name}-Makefile.patch
 URL:		http://mp3gain.sourceforge.net/
+BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,6 +28,7 @@ tak naprawdę plik brzmi dla ludzkiego ucha.
 %prep
 %setup -q -c
 %patch0 -p0
+sed -e '/CFLAGS/s/-O3//' -i Makefile
 
 %build
 %{__make} \
