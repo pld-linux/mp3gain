@@ -1,20 +1,11 @@
---- Makefile.orig	2006-10-17 20:29:32.000000000 +0200
-+++ Makefile	2006-10-17 20:34:01.000000000 +0200
+--- mp3gain-1.5.2/Makefile~	2010-08-04 22:55:39.000000000 +0200
++++ mp3gain-1.5.2/Makefile	2011-01-15 16:03:09.055103265 +0100
 @@ -6,7 +6,7 @@
  
- CC=     gcc
+ CC?= gcc
  
--CFLAGS= -Wall -O3 -DHAVE_MEMCPY
-+override CFLAGS+= -Wall -O3 -DHAVE_MEMCPY
+-CFLAGS+= -Wall -DHAVE_MEMCPY
++override CFLAGS+= -Wall -DHAVE_MEMCPY
  
- ifneq ($(OSTYPE),beos)
- INSTALL_PATH= /usr/local/bin
-@@ -30,7 +30,7 @@
- all: mp3gain
- 
- mp3gain: $(OBJS)
--	$(CC) -o mp3gain $(OBJS) $(LIBS)
-+	$(CC) $(LDFLAGS) -o mp3gain $(OBJS) $(LIBS)
- ifeq ($(OSTYPE),beos)
- 	mimeset -f mp3gain
- endif
+ # all known MS Windows OS define the ComSpec environment variable
+ ifdef ComSpec
