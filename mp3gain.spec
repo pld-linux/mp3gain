@@ -1,15 +1,15 @@
+%define	subver	_r2
 Summary:	Analyzes and losslessly adjusts MP3 files to a specified target volume
 Summary(pl.UTF-8):	Analiza i bezstratne dostrojenie plików MP3 do zadanej głośności
 Name:		mp3gain
-Version:	1.4.6
+Version:	1.5.2
 Release:	1
 License:	LGPL
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/mp3gain/%{name}-%(echo %{version} | tr . _)-src.zip
-# Source0-md5:	4327167375dce5bce97625729a95fdb9
+Source0:	http://dl.sourceforge.net/mp3gain/%{name}-%(echo %{version} | tr . _)%{subver}-src.zip
+# Source0-md5:	b8e429f3225cc298c5d13d31afd050b6
 Patch0:		%{name}-Makefile.patch
 URL:		http://mp3gain.sourceforge.net/
-BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,13 +27,12 @@ tak naprawdę plik brzmi dla ludzkiego ucha.
 
 %prep
 %setup -q -c
-%patch0 -p0
-sed -e '/CFLAGS/s/-O3//' -i Makefile
+%patch0 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}" \
+	CFLAGS="%{rpmcppflags} %{rpmcflags}" \
 	LDFLAGS="%{rpmcflags} %{rpmldflags}"
 
 %install
@@ -47,4 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/mp3gain
